@@ -10,9 +10,9 @@ export default auth(async (req) => {
   [TODO] : Authorization
   */
 
-  // if (isAuthenticated && path.startsWith("/login")) {
-  //   return NextResponse.redirect(new URL("/", req.url));
-  // }
+  if (isAuthenticated && path.startsWith("/login")) {
+    return NextResponse.redirect(new URL("/", req.url));
+  }
 
   return NextResponse.next();
 });

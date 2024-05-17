@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { AppContextProvider } from "@/context/AppContext";
 
 const fontSans = localFont({
   src: "../../public/fonts/futura3.woff2",
@@ -43,7 +44,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuthProvider>{children}</AuthProvider>
+          <AppContextProvider>
+            <AuthProvider>{children}</AuthProvider>
+          </AppContextProvider>
         </ThemeProvider>
       </body>
     </html>
